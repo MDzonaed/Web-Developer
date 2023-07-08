@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+      html{
+        scroll-behavior: smooth;
+      }
+      body{
+        font-family: 'Montserrat', sans-serif;
+      }
+      h1,h2,h3,h4,h5,h6{
+        font-family: 'Roboto', sans-serif;
+      }
+      .hr-style{
+        border: dotted 5px white;
+        border-bottom: none;
+        width: 50px;
+      }
+
+      header{
+        background-image: url(shohag.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      .navbar{
+        padding: 1% 10%;
+        background-color: rgba(0,0,0,0.3);
+      }
+      .navbar-toggler{
+         background-color: #fff;
+         border: none;
+      }
+      .navbar-brand img{
+        width: 60px;
+        height: auto;
+      }
+      .nav-link{
+        color: white;
+        margin: 10px;
+        border-radius: 5px;
+        transition: .4s;
+      }
+      .nav-link:hover{
+        background-color: #2980b9;
+        color: white;
+        transform: scale(1.1);
+      }
+      .banner-container{
+        height: 100vh;
+      }
+      .banner-container h1{
+        font-size: 3.5rem;
+        background-color: rgba(7,101,189,0.8);
+        padding: 10px 20px;
+        font-family: 'Handlee', cursive;
+        border-radius: 5px;
+      }
+
+
+      #features{
+        padding: 5% 10%;
+        background: #FFF3E0;
+      }
+      .features-col{
+        border: 1px solid #FF8A65;
+        border-radius: 5px;
+        padding: 15px;
+        margin: 20px 0;
+        transition: .4s;
+      }
+      .features-col:hover{
+        transform: scale(1.1);
+        box-shadow: 1px 5px 6px black;
+      }
+      .style-icon{
+        background-color: #FF8A65;
+        padding: 15px;
+        color: white;
+        margin: 5px 0;
+      }
+
+
+      #about-me{
+        padding: 4% 10%;
+        background: #BCAAA4;
+      }
+      .overflow-scroll{
+        border: 1px solid aqua;
+        border-radius: 5px;
+      }
+
+
+      #tutorial{
+        padding: 4% 10%;
+        background-color: #607d8b;
+      }
+      .card{
+        transition: .4s;
+        border: 1px solid #ff5722;
+      }
+      .card:hover{
+        transform: scale(1.1);
+        box-shadow: 1px 5px 6px brown;
+      }
+      #feedback{
+        background-color: gray;
+        padding: 4% 10%;
+        width: 100%;
+      }
+      .skill-container{
+        border: 1px solid gold;
+        box-shadow: 1px 5px 6px gold;
+        border-radius: 10px;
+        padding: 5px 10px;
+        color: white;
+      }
+      .skill-container li{
+         list-style-type: none;
+         margin: 50px 0;
+         font-weight: bolder;
+         text-transform: uppercase;
+         position: relative;
+      }
+      .skill-container li::before{
+        content: '';
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        background-color: rgb(170,163,173);
+        width: 100%;
+        height: 25px;
+        border-radius: 1000px;
+      }
+      .skill-container li::after{
+        content: '';
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        background-color: rgb(249,249,250);
+        width: 0;
+        height: 25px;
+        border-radius: 1000px;
+
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-delay: 1.5s;
+        animation-iteration-count: infinite; 
+      }
+      .skill-container li.html::after{
+        animation-name: html;
+      }
+      .skill-container li.css::after{
+        animation-name: css;
+      }
+      .skill-container li.js::after{
+        animation-name: js;
+      }
+      .skill-container li.bs::after{
+        animation-name: bs;
+      }
+      .skill-container li.java::after{
+        animation-name: java;
+      }
+      .skill-container li.cplus::after{
+        animation-name: cplus;
+      }
+      @keyframes html{
+        to{
+          width: 90%;
+          background-color: #f781be;
+        }
+      }
+      @keyframes css{
+        to{
+          width: 80%;
+          background-color: #8181f7;
+        }
+      }
+      @keyframes js{
+        to{
+          width: 75%;
+          background-color: #81f7f3;
+        }
+      }
+      @keyframes bs{
+        to{
+          width: 80%;
+          background-color: #bef781;
+        }
+      }
+      @keyframes java{
+        to{
+          width: 85%;
+          background-color: #f78181;
+        }
+      }
+      @keyframes cplus{
+        to{
+          width: 75%;
+          background-color: #330000;
+        }
+      }
+
+      .carousel-item{
+        padding: 5% 15%;
+        text-align: center;
+        font-style: italic;
+        font-size: 1.2rem;
+      }
+      .feedback-img{
+        width: 200px;
+        height: auto;
+      }
+      .carousel-indicators{
+        margin-bottom: -5px;
+      }
+      .border-style{
+        border: 1px solid aqua;
+        box-shadow: 2px 4px 6px aqua;
+        color: white;
+        transition: .4s;
+      }
+      .border-style:hover{
+        transform: scale(1.1);
+      }
+
+
+
+      #contact{
+      background: #bca9f5;
+      padding: 2% 10%;
+     }
+     .form-group label{
+      margin-bottom: 0;
+      font-weight: bold;
+     }
+
+
+     footer{
+      padding: 1% 10%;
+      background: #056676;
+     }
+     footer a{
+      text-decoration: none;
+      color: white;
+      margin: 0 10px;
+     }
+     footer a:hover{
+      color: black;
+     }
+
+
+     @media (max-width:768px){
+      .nav-link{
+        background: rgb(0,0,0,0.7);
+      }
+      .banner-container h1{
+        font-size: 2.5rem;
+      }
+     }
+      
+    </style>
+  </head>
+  <body>
+    
+ <div class="container">
+
+<header>
+  <nav class="navbar navbar-expand-md">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="logo">
+      </a>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-center text-md-left" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-center text-md-left" href="#about-me">About Me</a></li>
+          <li class="nav-item"><a class="nav-link text-center text-md-left" href="#tutorial">Tutorials</a></li>
+          <li class="nav-item"><a class="nav-link text-center text-md-left" href="#feedback">Feedback</a></li>
+          <li class="nav-item"><a class="nav-link text-center text-md-left" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section id="banner">
+     <div class="banner-container d-flex justify-content-center align-items-center">
+      <div class="banner-contents text-center">
+        <h1 class="fw-bolder text-white mb-5">Learn Somethings New!!!</h1>
+        <button class="btn btn-lg btn-primary me-3" onclick="location.href='#tutorial'"><i class="fas fa-play me-2"></i>Tutorials</button>
+        <button class="btn btn-lg btn-primary me-3" onclick="window.open('www.youtube')" class="request-callback"><i class="fab fa-youtube me-2"></i>Subscribe</button>
+    </div>
+     </div>
+  </section>
+</header>
+
+
+<main>
+  <section id="features" class="text-center">
+    <div class="row">
+      <div class="col-lg-4 d-block d-lg-flex">
+        <div class="features-col">
+          <i class="fa fa-hand-holding-usd fa-3x style-icon rounded-circle"></i>
+           <h5 class="fw-bolder">Free To Use</h5>
+           <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis praesentium nulla suscipit, recusandae labore est deserunt dolores optio cum laborum!</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 d-block d-lg-flex">
+        <div class="features-col">
+          <i class="fa fa-hand-holding-usd fa-3x style-icon rounded-circle"></i>
+           <h5 class="fw-bolder">Free To Use</h5>
+           <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis praesentium nulla suscipit, recusandae labore est deserunt dolores optio cum laborum!</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 d-block d-lg-flex">
+        <div class="features-col">
+          <i class="fa fa-hand-holding-usd fa-3x style-icon rounded-circle"></i>
+           <h5 class="fw-bolder">Free To Use</h5>
+           <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis praesentium nulla suscipit, recusandae labore est deserunt dolores optio cum laborum!</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="about-me">
+     <div class="section-title">
+      <h3 class="text-center fw-bolder">About Me</h3>
+      <hr class="hr-style m-auto" style="border-color: black;">
+     </div>
+     
+     <div class="row">
+      <div class="col-lg-6">
+        <div class="basic-desc">
+          <i class="fa-3x rounded-circle style-icon far fa-user"></i>
+          <h5 class="fw-bolder">Personal Information</h5>
+          <p class="overflow-scroll p-3  bg-body-tertiary" style="max-width: 100%; max-height: 200px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed, deleniti. Itaque accusamus iure et exercitationem eum, cum sunt tempora delectus. Ipsam ratione aliquam voluptate fugiat minima quaerat velit eveniet sit fugit non aperiam adipisci, quo quis cum blanditiis recusandae aliquid esse hic error labore. Cum alias porro fuga magnam nisi Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non dolorem explicabo accusamus iusto dolore earum rerum, eos aliquam doloribus magnam..</p>
+        </div>
+      </div>
+     </div>
+
+
+     <div class="row">
+      <div class="col-lg-6">
+
+      </div>
+      <div class="col-lg-6">
+        <div class="basic-desc">
+          <i class="fa-3x rounded-circle style-icon fa-solid fa-copy"></i>
+          <h5 class="fw-bolder">My Life History</h5>
+          <div class="hide-title">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed, deleniti. Itaque accusamus iure et exercitationem eum, cum sunt tempora delectus. Ipsam ratione aliquam voluptate fugiat minima quaerat velit eveniet sit fugit non aperiam adipisci, quo quis cum blanditiis recusandae aliquid esse hic error labore. Cum alias porro fuga magnam nisi Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non dolorem explicabo accusamus iusto dolore earum rerum, eos aliquam doloribus magnam..</p>
+            <a href="#hide" data-bs-toggle="collapse">Learn More</a>
+            <p id="hide" class="collapse">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium odit nesciunt mollitia ipsa sint perspiciatis? Repudiandae aut porro cumque, accusantium a deleniti distinctio dolor sequi deserunt aperiam amet aspernatur atque debitis numquam dolorem, eum fugiat. Quibusdam pariatur, ab sed sint fugit similique voluptatibus deserunt accusamus, officia nesciunt quaerat adipisci dolor quod rem aperiam. Earum ipsam non atque provident aperiam soluta voluptate quo sequi fugiat! Adipisci ratione necessitatibus quod at facilis exercitationem cum incidunt veritatis nostrum quisquam, cupiditate corporis, doloremque itaque animi aliquid non tenetur unde accusantium minus laborum nesciunt dolorem. Corporis cupiditate non corrupti ducimus dolorem! Voluptatem facilis a eius!</p>
+          </div>
+        </div>
+      </div>
+     </div>
+  </section>
+
+
+  <section id="tutorial">
+    <div class="section-title">
+      <h3 class="text-center fw-bolde text-white">Tutorial</h3>
+      <hr class="hr-style m-auto" style="border-color: white;">
+     </div>
+
+     <div class="row text-center my-3">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+          <div class="card mb-5 m-lg-0">
+            <img class="card-img-top" src="school.jpg" alt="school">
+            <div class="card-body text-center">
+              <h3 class="card-title fw-bolder">HSC ICT</h3>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card mb-5 m-lg-0">
+            <img class="card-img-top" src="school.jpg" alt="school">
+            <div class="card-body text-center">
+              <h3 class="card-title fw-bolder">HSC ICT</h3>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card mb-5 m-lg-0">
+            <img class="card-img-top" src="school.jpg" alt="school">
+            <div class="card-body text-center">
+              <h3 class="card-title fw-bolder">HSC ICT</h3>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card mb-5 m-lg-0">
+            <img class="card-img-top" src="school.jpg" alt="school">
+            <div class="card-body text-center">
+              <h3 class="card-title fw-bolder">HSC ICT</h3>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card mb-5 m-lg-0">
+            <img class="card-img-top" src="school.jpg" alt="school">
+            <div class="card-body text-center">
+              <h3 class="card-title fw-bolder">HSC ICT</h3>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card mb-5 m-lg-0">
+            <img class="card-img-top" src="school.jpg" alt="school">
+            <div class="card-body text-center">
+              <h3 class="card-title fw-bolder">HSC ICT</h3>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card mb-5 m-lg-0">
+            <img class="card-img-top" src="school.jpg" alt="school">
+            <div class="card-body text-center">
+              <h3 class="card-title fw-bolder">HSC ICT</h3>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="card mb-5 m-lg-0">
+            <img class="card-img-top" src="school.jpg" alt="school">
+            <div class="card-body text-center">
+              <h3 class="card-title fw-bolder">HSC ICT</h3>
+              <a href="#" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+     </div>
+  </section>
+
+
+  <section id="feedback">
+    <div class="section-title">
+      <h3 class="text-center fw-bolde text-white">Feedback</h3>
+      <hr class="hr-style m-auto" style="border-color: white;">
+     </div>
+
+     <div class="row">
+      <div class="col-lg-7 mt-3">
+        <div class="skill-container">
+           <ul>
+            <li class="html">HTML</li>
+            <li class="css">CSS</li>
+            <li class="js">JS</li>
+            <li class="bs">Bootstrap</li>
+            <li class="java">Java</li>
+            <li class="cplus">C++</li>
+           </ul>
+        </div>
+      </div>
+     </div>
+
+
+     <div class="row mt-5">
+      <div class="col-lg-5"></div>
+      <div class="col-lg-7 mt-3 border-style">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-pause="hover">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <p>1. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor ipsum facere ab possimus impedit eos.</p>
+              <img class="feedback-img rounded-circle" src="life.jpg" alt="">
+              <h6 class="mt-2">Md Zonaed Shohag</h6>
+            </div>
+            <div class="carousel-item">
+              <p>2. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor ipsum facere ab possimus impedit eos.</p>
+              <img class="feedback-img rounded-circle" src="life2.jpg" alt="">
+              <h6 class="mt-2">Md Zonaed Shohag</h6>
+            </div>
+            <div class="carousel-item">
+              <p>3. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor ipsum facere ab possimus impedit eos.</p>
+              <img class="feedback-img rounded-circle" src="life3.jpg" alt="">
+              <h6 class="mt-2">Md Zonaed Shohag</h6>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+     </div>
+  </section>
+
+
+
+     <section id="contact">
+      <div class="section-title mb-3">
+        <h3 class="text-center text-white">Contact</h3>
+        <hr class="hr-style m-auto">
+       </div>
+
+       <div class="row">
+        <div class="col-lg-12">
+          <form action="mailto:anisul2010s@yahoo.co.uk" method="post" enctype="text/plain" class="was-validated">
+          
+          <div class="form-group mb-2">
+            <label for="fullname">Fullname</label>
+            <input type="text" class="form-control" name="fullname"required>
+            <div class="valid-feedback">valid</div>
+            <div class="invalid-feedback" style="color: white;">Enter fullname before submitting the form</div>
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email"required>
+          </div>
+
+
+          <div class="form-group mb-2">
+            <label for="message">Message</label>
+            <textarea style="resize: none;" name="" class="form-control" id="" cols="30" rows="4"></textarea>
+          </div>
+
+          <div class="form-group text-center mb-2">
+            <input type="submit" class="btn btn-primary me-3" value="Submit">
+
+            <input type="reset" class="btn btn-primary me-3" value="Reset">
+          </div>
+          </form>
+        </div>
+       </div>
+    </section>
+  </section>
+</main>
+
+
+
+<footer>
+  <div class="row">
+    <div class="col-lg-6 text-center text-lg-left mb-3 mb-lg-0">
+       <p class="small mb-0 mt-1">&copy; Copyright Zonaed Shohag</p>
+    </div>
+    <div class="col-lg-6 text-center text-lg-right">
+      <a href="#">Home</a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </div>
+</footer>
+
+ </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
